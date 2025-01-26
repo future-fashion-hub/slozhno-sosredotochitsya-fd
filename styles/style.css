@@ -2,4 +2,115 @@
 
 .page {
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  background-image: url('../images/cover-image-dark.png');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+header {
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr min-content 1fr;
+  align-items: center;
+  min-height: 668px;
+  margin: 10px;
+  font-family: 'IBM Plex mono', Arial, Helvetica, serif;
+}
+
+.header__title {
+  color: var(--h1-color);
+  font-weight: bold;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 95.7px;
+  text-align: left;
+  text-shadow: 4px 4px 0 var(--accent-color);
+}
+
+.title-decor {
+  color: var(--text-color);
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 23.4px;
+  text-align: left;
+  background-color: var(--accent-color);
+}
+
+.decorated-zone::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-inline-end: 1px solid var(--accent-color);
+  border-block-start: 1px solid var(--accent-color);
+  inset-inline-end: 0;
+  inset-block-start: 0;
+}
+
+.decorated-zone::before {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-inline-start: 1px solid var(--accent-color);
+  border-block-end: 1px solid var(--accent-color);
+  inset-inline-start: 0;
+  inset-block-end: 0;
+}
+
+span[class="rec"] {
+  position: absolute;
+  color: var(--accent-color);
+  font-size: 18px;
+  inset-inline-end: 10px;
+  inset-block-start: 10px;
+}
+
+span[class="rec"]::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  margin: 8px 9px 9px 10px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 4px 2px #FF0070;
+  background-color: var(--accent-color);
+}
+
+.header__theme-menu {
+  justify-self: flex-end;
+}
+
+.header__theme-menu-list {
+  display: grid;
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  border: none;
+  padding: 2px 13px 4px;
+  color: var(--accent-color);
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 18px;
+  text-transform: lowercase;
+  background-color: transparent;
+}
+
+.header__theme-menu-button_type_dark {
+  border: 1px solid var(--accent-color);
+}
+
+.header__theme-menu-button:hover {
+  border: 1px solid var(--accent-color-alpha);
+}
+
+.header__theme-menu-button:focus {
+  border: initial;
+  border-block-end: 1px solid var(--accent-color);
+}
+
+.main {
+  padding: 40px 10px;
+  background-color: var(--text-color);
 }

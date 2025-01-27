@@ -13,12 +13,12 @@ header {
   display: grid;
   grid-template-rows: 1fr min-content 1fr;
   align-items: center;
-  min-height: 668px;
+  min-block-size: 668px;
   margin: 10px;
   font-family: 'IBM Plex mono', Arial, Helvetica, serif;
 }
 
-.header__title {
+.main__title {
   color: var(--h1-color);
   font-weight: bold;
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
@@ -29,7 +29,7 @@ header {
 
 .title-decor {
   color: var(--text-color);
-  font-weight: bold;
+  font-weight: var(--font-weight);
   font-size: 18px;
   line-height: 23.4px;
   text-align: left;
@@ -39,8 +39,8 @@ header {
 .decorated-zone::after {
   content: "";
   position: absolute;
-  width: 25px;
-  height: 25px;
+  inline-size: 25px;
+  block-size: 25px;
   border-inline-end: 1px solid var(--accent-color);
   border-block-start: 1px solid var(--accent-color);
   inset-inline-end: 0;
@@ -50,28 +50,29 @@ header {
 .decorated-zone::before {
   content: "";
   position: absolute;
-  width: 25px;
-  height: 25px;
+  inline-size: 25px;
+  block-size: 25px;
   border-inline-start: 1px solid var(--accent-color);
   border-block-end: 1px solid var(--accent-color);
   inset-inline-start: 0;
   inset-block-end: 0;
 }
 
-span[class="rec"] {
+.rec {
   position: absolute;
   color: var(--accent-color);
   font-size: 18px;
-  inset-inline-end: 10px;
-  inset-block-start: 10px;
+  inset-inline-end: 28px;
+  inset-block-start: 0px;
 }
 
-span[class="rec"]::after {
+.rec::after {
   content: "";
   position: absolute;
-  width: 9px;
-  height: 9px;
-  margin: 8px 9px 9px 10px;
+  block-size: 9px;
+  inset-block-start: 8px;
+  inset-inline-end: -19px;
+  inline-size: 9px;
   border-radius: 50%;
   box-shadow: 0px 0px 4px 2px #FF0070;
   background-color: var(--accent-color);
@@ -97,7 +98,8 @@ span[class="rec"]::after {
   background-color: transparent;
 }
 
-.header__theme-menu-button_type_dark {
+.header__theme-menu-button_active {
+  pointer-events: none;
   border: 1px solid var(--accent-color);
 }
 
@@ -111,6 +113,87 @@ span[class="rec"]::after {
 }
 
 .main {
-  padding: 40px 10px;
+  display: flex;
+  gap: 50px;
+  flex-direction: column;
+  padding: 60px 10px;
   background-color: var(--text-color);
+  font-family: 'IBM Plex mono', Arial, Helvetica, serif;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: 1;
+  gap: 20px;
+}
+
+.section-content {
+  display: grid;
+  gap: 10px;
+}
+
+.text-deccorstion {
+  line-height: 23.4px;
+  color: var(--paragraph-text-color)
+}
+
+.section-title {
+  font-size: 18px;
+  color: var(--accent-color)
+}
+
+.links__decorstion {
+  text-decoration: none;
+  text-shadow: 2px 1px 0 var(--accent-color);
+}
+
+.links__decorstion:hover {
+  border-block-end: 1px solid var(--paragraph-text-color);
+}
+
+.links__decorstion:focus {
+  border: 1px solid var(--paragraph-text-color);
+}
+
+.section-three-title {
+  font-weight: 400;
+}
+
+.image {
+  block-size: 100%;
+  inline-size: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.footer {
+  font-family: 'IBM Plex mono', Arial, Helvetica, serif;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--text-color);
+  min-block-size: 668px;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  inline-size: 25px;
+  block-size: 25px;
+  border-inline-end: 1px solid var(--accent-color);
+  border-block-start: 1px solid var(--accent-color);
+  inset-inline-end: 10px;
+  inset-block-start: 10px;
+}
+
+footer::after {
+  content: "";
+  position: absolute;
+  inline-size: 25px;
+  block-size: 25px;
+  border-inline-start: 1px solid var(--accent-color);
+  border-block-end: 1px solid var(--accent-color);
+  inset-inline-start: 10px;
+  inset-block-end: 10px;
 }

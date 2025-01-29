@@ -1,8 +1,5 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
-  background-image: url('../images/cover-image-dark.png');
+  background-image: var(--background-img);
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -43,8 +40,8 @@ header {
 .decorated-zone::after {
   content: "";
   position: absolute;
-  border-inline-end: 1px solid var(--accent-color);
-  border-block-start: 1px solid var(--accent-color);
+  border-inline-end: 1px solid var(--section-title-color);
+  border-block-start: 1px solid var(--section-title-color);
   inline-size: 25px;
   block-size: 25px;
   inset-inline-end: 0;
@@ -54,8 +51,8 @@ header {
 .decorated-zone::before {
   content: "";
   position: absolute;
-  border-inline-start: 1px solid var(--accent-color);
-  border-block-end: 1px solid var(--accent-color);
+  border-inline-start: 1px solid var(--section-title-color);
+  border-block-end: 1px solid var(--section-title-color);
   inline-size: 25px;
   block-size: 25px;
   inset-inline-start: 0;
@@ -74,7 +71,7 @@ header {
   content: "";
   position: absolute;
   border-radius: 50%;
-  box-shadow: 0px 0px 4px 2px #FF0070;
+  box-shadow: 0px 0px 4px 2px var(--accent-color);
   background-color: var(--accent-color);
   block-size: 9px;
   inset-block-start: 8px;
@@ -87,7 +84,8 @@ header {
 }
 
 .header__theme-menu-list {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 10px;
 }
 
@@ -103,15 +101,20 @@ header {
 }
 
 .header__theme-menu-button_active {
-  border: 1px solid var(--accent-color);
+  outline: 1px solid var(--accent-color);
   pointer-events: none;
 }
 
 .header__theme-menu-button:hover {
-  border: 1px solid var(--accent-color-alpha);
+  outline: 1px solid var(--accent-color-alpha);
 }
 
 .header__theme-menu-button:focus {
+  border: initial;
+  border-block-end: 1px solid var(--accent-color);
+}
+
+.header__theme-menu-button:focus-visible {
   border: initial;
   border-block-end: 1px solid var(--accent-color);
 }
@@ -121,7 +124,7 @@ header {
   gap: 50px;
   padding: 40px 10px;
   font-family: 'IBM Plex mono', Arial, Helvetica, serif;
-  background-color: var(--text-color);
+  background-color: var(--bg-color);
 }
 
 .section {
@@ -140,7 +143,7 @@ header {
 }
 
 .section-title {
-  color: var(--accent-color);
+  color: var(--section-title-color);
   font-size: 18px;
 }
 
@@ -154,7 +157,11 @@ header {
 }
 
 .links__decorstion:focus {
-  border: 1px solid var(--paragraph-text-color);
+  outline: 1px solid var(--paragraph-text-color);
+}
+
+.links__decorstion:focus-visible {
+  outline: 1px solid var(--paragraph-text-color);
 }
 
 .section-three-title {
@@ -180,7 +187,7 @@ header {
   align-items: center;
   padding: 10px;
   font-family: 'IBM Plex mono', Arial, Helvetica, serif;
-  background-color: var(--text-color);
+  background-color: var(--bg-color);
   min-block-size: 668px;
 }
 
@@ -239,7 +246,7 @@ footer::after {
   .first-section .section-title {
     grid-column: 1;
     grid-row: span 2;
-    inline-size: min-content;
+    min-inline-size: 236px;
   }
 
   .ferst-section .section-content {
@@ -297,12 +304,12 @@ footer::after {
   }
 
   .footer {
+    padding: 20px;
     min-block-size: 1024px;
-    padding: 20px
   }
 
   .footer-title {
-    font-size: (7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 
   .footer::before {
@@ -317,5 +324,45 @@ footer::after {
 }
 
 @media (width >= 1024px) {
+  .header {
+    min-block-size: 768px;
+  }
 
+  .header__theme-menu {
+    justify-self: center;
+    align-self: flex-start;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+  }
+
+  
+  .header-text {
+    max-inline-size: 491px;
+  }
+
+  .first-section .section-title {
+    min-inline-size: 314px;
+  }
+  .second-section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .second-section .section-title {
+    grid-column: span 3;
+    min-inline-size: 315px;
+  }
+
+  .second-section .section-content {
+    grid-template-rows: min-content 1fr;
+  }
+
+  .third-section .section-title {
+    min-inline-size: 315px;
+  }
+
+  .footer {
+    min-block-size: 768px;
+  }
 }

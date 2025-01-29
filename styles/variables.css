@@ -1,13 +1,11 @@
-/*
-  Переменные для вашего проекта
-  и их переопределение под различные устройства
-*/
-
 :root {
+  --background-img: url('../images/cover-image-dark.png');
   --accent-color: #ff0070;
   --accent-color-alpha: rgba(255, 0, 112 , 0.4);
   --title-color: #DB00FF;
   --text-color: #000028;
   --paragraph-text-color: #F1B2CE;
   --font-weight: 700;
+  --bg-color: #000028;
+  --section-title-color: #ff0070;
 }

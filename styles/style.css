@@ -13,6 +13,7 @@ header {
   margin: 10px;
   font-family: 'IBM Plex mono', Arial, Helvetica, serif;
   min-block-size: 668px;
+  height: 100vh;
 }
 
 .main__title {
@@ -190,6 +191,7 @@ header {
   font-family: 'IBM Plex mono', Arial, Helvetica, serif;
   background-color: var(--bg-color);
   min-block-size: 668px;
+  height: 100vh;
 }
 
 .footer::before {

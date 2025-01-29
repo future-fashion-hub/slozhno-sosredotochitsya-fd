@@ -140,6 +140,7 @@ header {
 .text-deccorstion {
   color: var(--paragraph-text-color);
   line-height: 23.4px;
+  font-size: 18px;
 }
 
 .section-title {
@@ -194,8 +195,8 @@ header {
 .footer::before {
   content: "";
   position: absolute;
-  border-inline-end: 1px solid var(--accent-color);
-  border-block-start: 1px solid var(--accent-color);
+  border-inline-end: 1px solid var(--section-title-color);
+  border-block-start: 1px solid var(--section-title-color);
   inline-size: 25px;
   block-size: 25px;
   inset-inline-end: 10px;
@@ -205,8 +206,8 @@ header {
 footer::after {
   content: "";
   position: absolute;
-  border-inline-start: 1px solid var(--accent-color);
-  border-block-end: 1px solid var(--accent-color);
+  border-inline-start: 1px solid var(--section-title-color);
+  border-block-end: 1px solid var(--section-title-color);
   inline-size: 25px;
   block-size: 25px;
   inset-inline-start: 10px;
@@ -220,7 +221,7 @@ footer::after {
   text-shadow: 2px 2px 0px var(--accent-color);
 }
 
-@media (width >= 780px) {
+@media (width >= 768px) {
   .header {
     margin: 20px;
     min-block-size: 1024px;

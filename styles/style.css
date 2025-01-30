@@ -10,10 +10,10 @@ header {
   display: grid;
   grid-template-rows: 1fr min-content 1fr;
   align-items: center;
-  margin: 10px;
+  padding: 10px 10px 0;
   font-family: 'IBM Plex mono', Arial, Helvetica, serif;
   min-block-size: 668px;
-  height: 100vh;
+  block-size: 100vh;
 }
 
 .main__title {
@@ -45,8 +45,8 @@ header {
   border-block-start: 1px solid var(--section-title-color);
   inline-size: 25px;
   block-size: 25px;
-  inset-inline-end: 0;
-  inset-block-start: 0;
+  inset-inline-end: 10px;
+  inset-block-start: 10px;
 }
 
 .decorated-zone::before {
@@ -56,16 +56,16 @@ header {
   border-block-end: 1px solid var(--section-title-color);
   inline-size: 25px;
   block-size: 25px;
-  inset-inline-start: 0;
-  inset-block-end: 0;
+  inset-inline-start: 10px;
+  inset-block-end: 10px;
 }
 
 .rec {
   position: absolute;
   color: var(--accent-color);
   font-size: 18px;
-  inset-inline-end: 28px;
-  inset-block-start: 0px;
+  inset-inline-end: 38px;
+  inset-block-start: 10px;
 }
 
 .rec::after {
@@ -191,7 +191,7 @@ header {
   font-family: 'IBM Plex mono', Arial, Helvetica, serif;
   background-color: var(--bg-color);
   min-block-size: 668px;
-  height: 100vh;
+  block-size: 100vh;
 }
 
 .footer::before {
@@ -225,8 +225,23 @@ footer::after {
 
 @media (width >= 768px) {
   .header {
-    margin: 20px;
+    padding: 20px 20px 0;
     min-block-size: 1024px;
+  }
+
+  .decorated-zone::after {
+    inset-inline-end: 20px;
+    inset-block-start: 20px;
+  }
+
+  .decorated-zone::before {
+    inset-inline-start: 20px;
+    inset-block-end: 20px;
+  }
+
+  .rec {
+    inset-inline-end: 48px;
+    inset-block-start: 20px;
   }
 
   .main__title {

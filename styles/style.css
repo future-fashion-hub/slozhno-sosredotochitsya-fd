@@ -10,7 +10,7 @@ header {
   display: grid;
   grid-template-rows: 1fr min-content 1fr;
   align-items: center;
-  padding: 10px 10px 0;
+  padding: 10px;
   font-family: 'IBM Plex mono', Arial, Helvetica, serif;
   min-block-size: 668px;
   block-size: 100vh;
@@ -99,6 +99,7 @@ header {
   line-height: 18px;
   text-transform: lowercase;
   background-color: transparent;
+  appearance: none;
 }
 
 .header__theme-menu-button_active {
@@ -111,13 +112,12 @@ header {
 }
 
 .header__theme-menu-button:focus {
-  border: initial;
-  border-block-end: 1px solid var(--accent-color);
+  appearance: none;
 }
 
 .header__theme-menu-button:focus-visible {
-  border: initial;
   border-block-end: 1px solid var(--accent-color);
+  outline: none;
 }
 
 .main {
@@ -140,8 +140,8 @@ header {
 
 .text-deccorstion {
   color: var(--paragraph-text-color);
-  line-height: 23.4px;
   font-size: 18px;
+  line-height: 23.4px;
 }
 
 .section-title {
@@ -166,11 +166,11 @@ header {
   outline: 1px solid var(--paragraph-text-color);
 }
 
-.section-three-title {
+.section-how-title {
   font-weight: 400;
 }
 
-.fourth-section {
+.gallery {
   display: grid;
   gap: 10px;
 }
@@ -194,28 +194,6 @@ header {
   block-size: 100vh;
 }
 
-.footer::before {
-  content: "";
-  position: absolute;
-  border-inline-end: 1px solid var(--section-title-color);
-  border-block-start: 1px solid var(--section-title-color);
-  inline-size: 25px;
-  block-size: 25px;
-  inset-inline-end: 10px;
-  inset-block-start: 10px;
-}
-
-footer::after {
-  content: "";
-  position: absolute;
-  border-inline-start: 1px solid var(--section-title-color);
-  border-block-end: 1px solid var(--section-title-color);
-  inline-size: 25px;
-  block-size: 25px;
-  inset-inline-start: 10px;
-  inset-block-end: 10px;
-}
-
 .footer-title {
   color: var(--title-color);
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
@@ -225,7 +203,8 @@ footer::after {
 
 @media (width >= 768px) {
   .header {
-    padding: 20px 20px 0;
+    grid-template-rows: 1fr 103px 1fr;
+    padding: 20px;
     min-block-size: 1024px;
   }
 
@@ -245,10 +224,13 @@ footer::after {
   }
 
   .main__title {
+    position: absolute;
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    inset-inline-start: 0;
   }
 
   .header-text {
+    grid-row: 3;
     max-inline-size: 364px;
   }
 
@@ -257,35 +239,35 @@ footer::after {
     padding: 60px 20px;
   }
 
-  .first-section {
+  .section-why {
     grid-template-columns: min-content 1fr;
   }
 
-  .first-section .section-title {
+  .section-why .section-title {
     grid-column: 1;
     grid-row: span 2;
     min-inline-size: 236px;
   }
 
-  .ferst-section .section-content {
+  .section-why .section-content {
     grid-column: 2;
   }
 
-  .second-section .section-title {
+  .section-what .section-title {
     inline-size: min-content;
   }
 
-  .third-section {
+  .section-how {
     grid-template-columns: min-content 1fr;
   }
 
-  .third-section .section-title {
+  .section-how .section-title {
     grid-column: 1;
     grid-row: span 2;
     min-inline-size: 236px;
   }
 
-  .third-section .section-content {
+  .section-how .section-content {
     grid-column: 2;
   }
 
@@ -293,11 +275,11 @@ footer::after {
     block-size: min-content;
   }
 
-  .fourth-section {
+  .gallery {
     gap: 20px;
   }
 
-  .fourth-section .section-content {
+  .gallery .section-content {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, min-content);
     gap: 20px; 
@@ -329,20 +311,11 @@ footer::after {
   .footer-title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
-
-  .footer::before {
-    inset-inline-end: 20px;
-    inset-block-start: 20px;
-  }
-  
-  footer::after {
-    inset-inline-start: 20px;
-    inset-block-end: 20px;
-  }
 }
 
 @media (width >= 1024px) {
   .header {
+    grid-template-rows: repeat(3, 1fr);
     min-block-size: 768px;
   }
 
@@ -355,28 +328,35 @@ footer::after {
     flex-direction: row;
   }
 
-  
-  .header-text {
-    max-inline-size: 491px;
+  .main__title {
+    position: absolute;
+    inset-inline-start: 0;
   }
 
-  .first-section .section-title {
+  .header-text {
+    position: relative;
+    grid-row: 3;
+    max-inline-size: 491px;
+    inset-block-end: 28px;
+  }
+
+  .section-why .section-title {
     min-inline-size: 314px;
   }
-  .second-section {
+  .section-what {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .second-section .section-title {
+  .section-what .section-title {
     grid-column: span 3;
     min-inline-size: 315px;
   }
 
-  .second-section .section-content {
+  .section-what .section-content {
     grid-template-rows: min-content 1fr;
   }
 
-  .third-section .section-title {
+  .section-how .section-title {
     min-inline-size: 315px;
   }
 
